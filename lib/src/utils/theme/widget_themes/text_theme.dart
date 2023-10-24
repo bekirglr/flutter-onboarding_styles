@@ -26,7 +26,7 @@ class TTextTheme {
     titleSmall: GoogleFonts.mavenPro(
       fontWeight: FontWeight.w500,
       fontSize: 30,
-      color: Colors.red
+      color: Colors.white
     ),
     bodySmall: GoogleFonts.mavenPro(
       fontWeight: FontWeight.w500,
