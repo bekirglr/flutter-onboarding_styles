@@ -49,48 +49,19 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-# flutter_native_splash:
-  # color: "#fcf8e8"
-  # color_dark: "#272727"
-  # image: assets/images/splash.jpeg
-  # image_dark: assets/images/splash_dark.jpeg
-  # fullscreen: true
-
-  # android_12:
-  #   image: assets/images/splash.jpeg
-  #   icon_background_color: "#fcf8e8"
-  #   image_dark: assets/images/splash_dark.jpeg
-  #   icon_background_color_dark: "#272727"
-  #   fullscreen: true
-
 flutter_native_splash:
-  android: true
-  ios: true
-  web: false
+  color: "#F5F7F8"
+  color_dark: "#45474B"
+  image: assets/images/logo_light.png
+  image_dark: assets/images/logo_dark.png
 
-  # color: "#fcf8e8"
-  background_image: assets/images/splash.jpeg
-  # image: assets/images/splash.jpeg
-  #branding: assets/dart.png
-  #branding_mode: bottom
-  # color_dark: "#45474B"
-  background_image_dark: assets/images/splash_dark.jpeg
-  image_dark: assets/images/splash_dark.jpeg
-  #branding_dark: assets/dart_dark.png
-  
   android_12:
-    image: assets/images/splash.jpeg
-    color: "#fcf8e8"
-  #   icon_background_color: "#272727"
-  #   branding: assets/dart.png
-  #   image_dark: assets/images/splash_dark.jpeg
-  #   color_dark: "#45474B"
-  #   icon_background_color_dark: "#45474B"
-
-  #android_gravity: center
-  #ios_content_mode: center
-  #web_image_mode: center
+    image: assets/images/logo_light.png
+    image_dark: assets/images/logo_dark.png
+    icon_background_color: "#F5F7F8"
+    icon_background_color_dark: "#45474B"
   fullscreen: true
+
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -101,7 +72,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/flutter.png
+    - assets/images/logo_transparent.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

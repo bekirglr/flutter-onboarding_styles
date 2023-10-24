@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
       home: const MyHomePage(),
     );
   }
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const Padding(
               padding: EdgeInsets.all(20.0),
-              child: Image(image: AssetImage('assets/images/flutter.png'), height: 300,),
+              child: Image(image: AssetImage('assets/images/logo_transparent.png'), height: 300,),
             )
           ],
         ),
