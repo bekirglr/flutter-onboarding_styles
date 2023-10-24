@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       // backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: const Text("AppBat Title"),
+        title: const Text("AppBar Title"),
         centerTitle: true,
         leading: const Icon(Icons.phone_android),
       ),
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const Padding(
               padding: EdgeInsets.all(20.0),
-              child: Image(image: AssetImage('assets/images/fox.png'), height: 300,),
+              child: Image(image: AssetImage('assets/images/flutter.png'), height: 300,),
             )
           ],
         ),
