@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
+import 'package:flutter_login_app/src/utils/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,62 +8,61 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: TAppTheme.lightTheme,
+      darkTheme: TAppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
+   const MyHomePage({super.key,});
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: const Text("AppBat Title"),
+        centerTitle: true,
+        leading: const Icon(Icons.phone_android),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Padding(
+        padding:const EdgeInsets.all(20),
+        child: ListView(
+          children: [
+            Text("Title", style: Theme.of(context).textTheme.titleMedium,),
+            Text("Sub-Title", style: Theme.of(context).textTheme.titleSmall),
+            Text("Paragraph", style: Theme.of(context).textTheme.bodySmall),
+            ElevatedButton(
+              onPressed: () => {},
+              child: const Text("Elevated Button"),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            OutlinedButton(
+              onPressed: () => {},
+              child: const Text("Outlined Button"),
             ),
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Image(image: AssetImage('assets/images/fox.png'), height: 300,),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: () => {},
+        child: const Icon(Icons.add_photo_alternate_outlined),
       ),
     );
   }
