@@ -3,45 +3,39 @@ import 'package:flutter_login_app/src/constants/colors.dart';
 import 'package:flutter_login_app/src/constants/image_strings.dart';
 import 'package:flutter_login_app/src/constants/sizes.dart';
 import 'package:flutter_login_app/src/constants/text_strings.dart';
-import 'package:flutter_login_app/src/features/authentication/screens/welcome/welcome_screen.dart';
+import 'package:flutter_login_app/src/features/authentication/controllers/splash_screen_controller.dart';
+import 'package:get/get.dart';
 
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashScreen extends StatelessWidget {
+  SplashScreen({super.key});
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-
-  bool animate = false;
-
-  @override
-  void initState() {
-    startAnimation();
-  }
+  final splashScreenController = Get.put(SplashScreenController());
 
   @override
   Widget build(BuildContext context) {
+    splashScreenController.startAnimation();
     return Scaffold(
       body: Stack(
-          children: [
-            AnimatedPositioned(
+        children: [
+          Obx(
+            () => AnimatedPositioned(
               duration: const Duration(milliseconds: 1600),
-              top: animate ? -50 : -150,
-              left: animate ? -20 : -150,
+              top: splashScreenController.animate.value ? -50 : -150,
+              left: splashScreenController.animate.value ? -20 : -150,
               child: const Image(
                 image: AssetImage(tSplashTopIcon)
               )
             ),
-            AnimatedPositioned(
-              duration: const Duration(milliseconds: 1600),
-              top: 100,
-              left: animate ? 200 : -200,
+          ),
+          Obx(
+            () => AnimatedPositioned(
+            duration: const Duration(milliseconds: 1600),
+            top: 100,
+            left: splashScreenController.animate.value ? 200 : -200,
               child: AnimatedOpacity(
                 duration: const Duration(milliseconds: 1600),
-                opacity: animate ? 1 : 0,
+                opacity: splashScreenController.animate.value ? 1 : 0,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -51,46 +45,42 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-            AnimatedPositioned(
-              duration: const Duration(milliseconds: 1600),
-              bottom: animate ? 250 : 0,
-              left: 40,
+          ),
+          Obx(
+            () => AnimatedPositioned(
+            duration: const Duration(milliseconds: 1600),
+            bottom: splashScreenController.animate.value ? 250 : 0,
+            left: 40,
               child: AnimatedOpacity(
                 duration: const Duration(milliseconds: 2000),
-                opacity: animate ? 1 : 0,
+                opacity: splashScreenController.animate.value ? 1 : 0,
                 child: const Image(
                 image: AssetImage(tSplashImage)
               )
               ),
             ),
-            AnimatedPositioned(
-              duration: const Duration(milliseconds: 1600),
-              bottom: animate ? 50 : 0,
-              right: tDefaultSize,
+          ),
+          Obx(
+            () => AnimatedPositioned(
+            duration: const Duration(milliseconds: 1600),
+            bottom: splashScreenController.animate.value ? 50 : 0,
+            right: tDefaultSize,
               child: AnimatedOpacity(
                 duration: const Duration(milliseconds: 2000),
-                opacity: animate ? 1 : 0,
+                opacity: splashScreenController.animate.value ? 1 : 0,
                 child: Container(
-                width: tSplashContainerSize,
-                height: tSplashContainerSize,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: tPrimaryColor,
+                  width: tSplashContainerSize,
+                  height: tSplashContainerSize,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: tPrimaryColor,
+                  ),
                 ),
               ),
-              )
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
+      ),
     );
-  }
-
-  Future startAnimation () async {
-    await Future.delayed(const Duration(milliseconds: 500));
-    setState(() => animate = true);
-
-    await Future.delayed(const Duration(milliseconds: 5000));
-    Navigator.pushReplacement(context, MaterialPageRoute(
-      builder: ((context) => WelcomeScreen())));
   }
 }
